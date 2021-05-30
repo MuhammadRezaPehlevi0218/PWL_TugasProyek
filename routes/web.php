@@ -19,6 +19,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/addmahasiswa', [App\Http\Controllers\HomeController::class, 'addmhs'])->name('add');
 
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile')->middleware('auth');
 
-Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changepass'])->name('change password');
+Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changepass'])->name('change password')->middleware('auth');

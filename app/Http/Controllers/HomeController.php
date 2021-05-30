@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
     public function changepass()
     {
-        return view('auth.passwords.reset');
+        return view('changepass');
     }
     public function addmhs()
     {
