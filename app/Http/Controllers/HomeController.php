@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function changepass()
+    {
+        return view('auth.passwords.reset');
+    }
+    public function addmhs()
+    {
+        return view('tambahMahasiswa');
+    }
 }
