@@ -9,20 +9,31 @@
         <!-- general form elements -->
         <div class="box box-primary">
             <!-- /.box-header -->
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <!-- form start -->
-            <form role="form" method="post" action="pages/mahasiswa/tambah_mahasiswa_proses.php">
+            <form method="post" action="{{ route('mahasiswa.store') }}" id="myForm">
                 <div class="box-body">
+                    @csrf
                     <div class="form-group">
-                        <label>Nim</label>
-                        <input type="text" name="nim" class="form-control" placeholder="Nim" required>
+                        <label for="Nim">Nim</label>
+                        <input type="text" name="Nim" class="form-control" id="Nim" required>
                     </div>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Nama" required>
+                        <input type="text" name="Nama" class="form-control" id="Nama" required>
                     </div>
                     <div class="form-group">
                         <label>Kelas</label>
-                        <select class="form-control" name="kelas">
+                        <select class="form-control" name="kelas" >
                             <option value="">- Pilih Kelas -</option>
                             <option value="Pagi">Pagi</option>
                             <option value="Siang">Siang</option>
