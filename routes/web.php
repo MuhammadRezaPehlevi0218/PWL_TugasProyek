@@ -22,3 +22,5 @@ Route::get('/addmahasiswa', [App\Http\Controllers\HomeController::class, 'addmhs
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile')->middleware('auth');
 
 Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changepass'])->name('change password')->middleware('auth');
+
+Route::post('/update-password','HomeController@updatePassword')->middleware('auth');

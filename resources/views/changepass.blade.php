@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Profile')
+@section('title', 'Change Password')
 
 @section('content_header')
 <!doctype html>
@@ -17,14 +17,14 @@
                             <div style="text-align: center;">
                                 <h3>Ganti Password</h3>
                             </div>
-                            <form method="POST" action="">
+                            <form method="post" action="{{URL::to('update-password')}}"class="border p-3 rouded">
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="oldpassword" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
+                                    <label for="old_password" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input  type="oldpassword" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input  type="password" class="form-control" name="old_password" value="{{ old('password') }}" required autocomplete="password" autofocus>
 
                                     </div>
                                 </div>
@@ -33,7 +33,8 @@
                                     <label for="password " class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="newpassword" class="form-control " name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="old-password">
+                                        @error('password')<div class="invalid-feedback">{{$message}}</div>@enderror
                                     </div>
                                 </div>
 
@@ -41,7 +42,7 @@
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Retype New Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="retype" class="form-control " name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" class="form-control " name="password_confirmation" required autocomplete="password">
                                     </div>
                                 </div>
 
